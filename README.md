@@ -19,9 +19,16 @@ routes={[
 ]}
 />
 ```
+
 ## Props
 Props | Details
 -------------------- | -------------------------
 routes | takes an array of objects:```{url:"/your-page",component<YourPage/>,label:"Your Page"}```
 drawerStyles |  Styles the drawer element that holds the main view takes a styles object : ```{width:200,height:200}```
 mainContainerStyles | Styles the containing element that holds the main view takes a styles object : ```{width:200,height:200}```
+
+
+
+https://frontend.fsdev.studio- Examples
+
+[Demo](https://frontend.fsdev.studio)

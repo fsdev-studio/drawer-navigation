@@ -1,6 +1,6 @@
 {
   "name": "drawer-navigation",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "author": "fsdevCOZA - Brytspark Labs",
   "license": "MIT",
@@ -16,7 +16,7 @@
 
   },
   "scripts": {
-    "publish:npm": "rd /s /q  ui && mkdir ui &&  babel src/components -d ui --copy-files",
+    "publish:npm": "mkdir ui &&  babel src/components -d ui --copy-files",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
