@@ -8,7 +8,7 @@ Install the pacakage : npm i drawer-navigation or yarn add drawer-navigation
 
 ## Include in your project
 ```javascript
-import Drawer from 'drawer-navigation/ui/Drawer
+import Drawer from 'drawer-navigation/Drawer
 ```
 
 ```javascript
