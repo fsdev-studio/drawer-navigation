@@ -29,6 +29,4 @@ mainContainerStyles | Styles the containing element that holds the main view tak
 
 
 
-https://frontend.fsdev.studio- Examples
-
-[Demo](https://frontend.fsdev.studio)
+[Examples](https://fsdev.studio)
