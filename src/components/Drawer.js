@@ -1,45 +1,72 @@
 
 import React, { useState } from 'react';
 import Navigation, {navigate,navigation} from './Navigation'
-
 import './Drawer.css';
+import FourZeroFour from './FourZeroFour';
 
 
-function Drawer({routes,mainContainerStyles}) {
+function Drawer({
+  routes,
+  mainContainerStyles,
+  hamburgerIconColor,
+  drawerCloseColor,
+  drawerBackgroundColor,
+  drawerLabelsStyle
+}) {
 
-const r = routes !== null && routes !== undefined ? routes : [{url:"/",component:<h1>Home</h1>,label:"Dash"},{url:"/shop",component:<h1>About</h1>,label:"Shop"}];
-const cStyles = mainContainerStyles !== null && mainContainerStyles !== undefined ? mainContainerStyles : {marginTop:100};
-
+const r = routes;
 const [route , setRoute] = useState(navigation())
 const [drawerWidth, setDrawerWidth] = useState(0);
 const [goto, setGoto] = useState(r);
 
-let compo =   goto.filter((g,i)=>{
+let compo =  goto.filter((g,i)=>{
       return navigation() === g.url
     });
 
   return (
-    <div className="App">
+    <div style={{display:'block',width:'100%',height:'100%',margin:0}}>
 
+    <span
+        style={{color:hamburgerIconColor}}
+        className="openbtn"
+        onClick={() => setDrawerWidth(250)}>
+        &#9776;
+    </span>
 
-    <span className="openbtn" onClick={() => setDrawerWidth(250)}>&#9776;</span>
+      <div
+          className="drawer"
+          style={{
+            background:drawerBackgroundColor,
+            height:'auto',
+            paddingBottom:20,
+            width:drawerWidth
+          }}
+      >
+            <span
+            className="closebtn"
+            style={{color:drawerCloseColor}}
+            onClick={() => setDrawerWidth(0)}>
+            &times;
+            </span>
+            {
+              goto.map((g,i)=>{
+                return (
+                <span
+                className="labels"
+                style={drawerLabelsStyle}
+                onClick={()=> setRoute(navigate(g.url))}>
+                {g.label}
+                </span>
+              )
+              })
+            }
+      </div>
 
-    <div id="mySidenav" class="sidenav" style={{width:drawerWidth}}>
-      <span class="closebtn" onClick={() => setDrawerWidth(0)}>&times;</span>
-      {
-        goto.map((g,i)=>{
-          return <span onClick={()=> setRoute(navigate(g.url))}>{g.label}</span>
-        })
-      }
+      <div style={mainContainerStyles}>
+        {compo[0] !== undefined ? compo[0].component : <FourZeroFour/>}
 
-    </div>
-<div style={cStyles}>
-{compo[0].component}
-</div>
-
-
-
-</div>
+      </div>
+  </div>
   );
 }
 
